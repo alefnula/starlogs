@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block body %}
+<div class="plane"></div>
+{% end %}
+
+{% block scripts %}
+<script src="{{ ss.root }}/static/js/starlogs.js" type="text/javascript"></script>
+<script type="text/javascript">
+$(function () {
+    $.ajax('{{ repo['url'] }}/jsonplog', {
+        'dataType': 'jsonp',
+        'success': playCommits,
+        'error': playError
+    });
+});
+</script>
+{% end %}

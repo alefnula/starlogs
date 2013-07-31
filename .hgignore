@@ -1,0 +1,7 @@
+syntax: glob
+.project
+.pydevproject
+.settings
+*.pyc
+data/log/*
+data/config/repos.json

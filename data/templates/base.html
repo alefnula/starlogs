@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>StarLogs</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <link rel="stylesheet" href="{{ ss.root }}/static/css/styles.css" media="screen" type="text/css" />
+  </head>
+  <body>
+    <audio id="theme" loop>
+      <source src="{{ ss.root }}/static/assets/theme.ogg" type="audio/ogg"/>
+      <source src="{{ ss.root }}/static/assets/theme.mp3" type="audio/mp3"/>
+    </audio>
+    <audio id="imperial_march" loop>
+      <source src="{{ ss.root }}/static/assets/imperial_march.ogg" type="audio/ogg"/>
+      <source src="{{ ss.root }}/static/assets/imperial_march.mp3" type="audio/mp3"/>
+    </audio>
+    <audio id="falcon_fly">
+      <source src="{{ ss.root }}/static/assets/falcon_fly.ogg" type="audio/ogg"/>
+      <source src="{{ ss.root }}/static/assets/falcon_fly.mp3" type="audio/mp3"/>
+    </audio>
+
+    <div class="scene">{% block body %}{% end %}</div>
+
+    <script src="{{ ss.root }}/static/js/jquery.min.js"></script>
+    {% block scripts %}{% end %}
+  </body>
+</html>

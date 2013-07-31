@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block body %}
+<table>
+    <thead>
+      <tr>
+        <th class="center">id</th>
+        <th class="center">Description</th>
+        <th class="center">Url</th>
+        <th class="center">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for repo in repos %}
+        <tr>
+            <td>{{ repo['id'] }}</td>
+            <td>{{ repo['desc']}}</td>
+            <td>{{ repo['url']}}</td>
+            <td class="center">
+                <form style="display: inline;" action="{{ ss.root }}/_config/" method="post">
+                    <input type="hidden" name="action" value="delete"/>
+                    <input type="hidden" name="id"     value="{{ repo['id'] }}"/>
+                    <input type="submit" value="Remove"/>
+                </form>
+            </td>
+        </tr>
+        {% end %}
+    </tbody>
+  </table>
+  
+  <br/>
+   
+  <table>
+    <form action="{{ ss.root }}/_config/" method="post">
+      <input type="hidden" name="action" value="add"/>
+      <thead>
+        <tr>
+            <th>Id:</th>
+            <td><input name="id" value=""/></td>
+        </tr>
+        <tr>
+            <th>Description:</th>
+            <td><input name="desc" value=""/></td>
+        </tr>
+        <tr>
+            <th>Url:</th>
+            <td><input name="url" value=""/></td>
+        </tr>
+        <tr>
+            <th />
+            <td><input type="submit" value="Submit"/></td>
+        </tr>
+      </thead>
+    </form>
+  </table>
+{% end %}
+
