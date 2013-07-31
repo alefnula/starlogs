@@ -2,11 +2,9 @@
 
 {% block body %}
 <div class="index">
-    <ul>
     {% for repo in repos %}
-      <li><a href="{{ ss.root }}/{{ repo['id'] }}/">{{ repo['desc'] }}</a></li>
+    <p><a href="{{ ss.root }}/{{ repo['id'] }}/">{{ repo['desc'] }}</a></p>
     {% end %}
-    </ul>
 </div>
 {% end %}
 

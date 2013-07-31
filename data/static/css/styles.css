@@ -48,8 +48,13 @@ body {
   -o-transition-timing-function: linear;
   transition-timing-function: linear; }
 
+.index p {
+   margin: 3px;
+}
+
 .index a, a:hover, .index a:visited {
     color: #fcdf2b;
+    text-decoration: none;
 }
 
 .plane {
