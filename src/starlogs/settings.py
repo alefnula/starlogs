@@ -6,6 +6,7 @@ import io
 import os
 import json
 import logging
+from tea import shutil
 
 
 logger = logging.getLogger(__name__)
@@ -32,7 +33,8 @@ class Settings:
             self.repos = []
 
     def _save_repos(self):
-        print repr(self.repos)
+        if not os.path.isdir(self.paths['config']):
+            shutil.mkdir(self.paths['config'])
         with io.open(os.path.join(self.paths['config'], 'repos.json'), 'w+b') as f:
             json.dump(self.repos, f, indent=2, encoding='utf-8')
 

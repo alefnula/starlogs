@@ -1,10 +1,10 @@
 (function() {
     var self = this;
     $(function() {
-        var animationEnd, transitionEnd, crawl, url;
+        var animationEnd, transitionEnd, crawl, playCommits, playError, url;
         animationEnd = "animationend webkitAnimationEnd MSAnimationEnd oAnimationEnd";
         transitionEnd = "webkitTransitionEnd transitionend msTransitionEnd oTransitionEnd";
-        
+
         crawl = function(messages) {
             var counter, delay;
             counter = 0;
@@ -33,6 +33,7 @@
             }
             return crawl(messages);
         };
+
         playError = function() {
             document.getElementById("imperial_march").play();
             return crawl([ "Tun dun dun, da da dun, da da dun ...", "Couldn't find the repo, the repo!" ]);
@@ -41,5 +42,13 @@
         $(document).on(animationEnd, ".content", function() {
             return $(this).remove();
         });
+
+        loadRepository = function (url) {
+            $.ajax(url + '/jsonp_log', {
+                'dataType': 'jsonp',
+                'success': playCommits,
+                'error': playError
+            });
+        };
     });
 }).call(this);
